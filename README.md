@@ -6,7 +6,7 @@
 We will be analyzing various features of 230,000 different Spotify tracks across genres to see which features are the most predictive in determining the popularity of the track.  Tools, languages and libraries we will use include Python, Pandas, Flask, Tableau, AWS databases, PostGRE, among others.  Our hope is to produce a web application that will share the findings and enable a user to enter characteristics to predict the popularity of a track.  
 
 ### Reason we selected the topic  
-All three of the project participants are musicians.  Regardless of the type of music we play or the instruments, we all found the data set to be an interesting one for further study.  
+Both project participants are musicians.  Regardless of the type of music we play or the instruments, we found the data set to be an interesting one for further study.  
 
 ### Questions we hope to answer with the data
 * What features are the most predictive in determining track popularity?
@@ -17,7 +17,7 @@ All three of the project participants are musicians.  Regardless of the type of 
 Our group will meet regularly during class times (Tuesdays and Thursdays from 7 to 9 pm), will decide upon separate tasks for completion, and will contact each other as needed via Slack.
 
 ## Participants  
-Project produced in January 2022 by Chester Williams, Elle Jacobs, and Vince Chandler.
+Project produced in January 2022 by Elle Jacobs and Vince Chandler.
 
 ## Data Source  
 Data was sourced from kaggle.com and includes 232,725 various tracks from the Spotify API.  Data was compiled by internet user Zaheen Hamidani and includes approximately 10,000 tracks per genre.  CSV file is located in this repository, as well as here: https://www.kaggle.com/zaheenhamidani/ultimate-spotify-tracks-db
@@ -41,9 +41,11 @@ Raw data features include (explanation from [Spotify Developer Documentation](ht
 ## Provisional Machine Learning  
 For our first pass, we are classifying 'popular' tracks as scored 50 or more.  Since this is a binary classification, we will start with a logistic regression model to see how effective it will be.  The provisional code for this is located in the 'import_clean' notebook on the 'vc' branch.
 
+# Database  
+Within the import_clean notebook, code is used to create our provisional database with SQL Alchemy.
+
 ## Findings  
 TBD
-
 
 ## Link to app  
 Link to dashboard (or link to video of dashboard demonstration)
@@ -51,5 +53,4 @@ Link to dashboard (or link to video of dashboard demonstration)
 ## Link to Google Slides presentation  
 Link: 
 
-Should include: 
-* Cohesive, structured outline of the project (this may include images, but they should be easy to follow and digest)
+
