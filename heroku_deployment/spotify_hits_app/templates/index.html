@@ -6,9 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -49,9 +60,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
-                    <form class="bg-dark" id="filter-form">
+                     <form method="POST" action="/send" role="form", name="musicform">
                         <p>Filter Search</p>
                         <ul class="list-group bg-dark">
+                            <li class="list-group-item bg-dark">
+                                <label for="genreId">Enter Genre</label>
+                                <input type="text" placeholder="Pop" id="genreId" />
+                            </li>
                             <li class="list-group-item bg-dark">
                                 <label for="acousticnessId">Enter Acousticness</label>
                                 <input type="text" placeholder="0.###" id="acousticnessId" />
@@ -89,6 +104,7 @@
                                 <input type="text" placeholder="0.###" id="valenceId" />
                             </li>
                         </ul>
+                        <input type="submit" value="Hit or Not?" class="btn btn-default">
                     </form>
                 </div>
                 <hr>
@@ -168,6 +184,7 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
                 <script src="static/js/plot_copy.js"></script>
+                <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
 </html>
