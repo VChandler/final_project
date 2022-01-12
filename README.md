@@ -51,6 +51,6 @@ TBD
 Link to dashboard (or link to video of dashboard demonstration)
 
 ## Link to Google Slides presentation  
-Link: 
+Link: <https://docs.google.com/presentation/d/1kwEtQHDsI_Bbk9MUEEXVeWJwBLRltwzRfAXhaxI8z7U/edit#slide=id.g10d4f5c8827_0_0>
 
 
