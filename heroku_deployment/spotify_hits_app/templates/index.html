@@ -6,105 +6,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Project</title>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-fixed-top navbar-default">
+    <!-- Navbar -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav1"
-                    aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Navbar</a>
-            </div>
-            <div class="collapse navbar-collapse" aria-expanded="false" id="nav1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#anchor1">Nav Part 1</a>
-                    </li>
-                    <li>
-                        <a href="#anchor2">Nav Part 2</a>
-                    </li>
-                    <li>
-                        <a href="#anchor3">Nav Part 3</a>
-                    </li>
-                </ul>
-            </div>
+          <a class="navbar-brand" href="/">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#anchor1">Nav1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#anchor2">Nav2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#anchor3">Nav3</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
     <div class="container" id="main">
         <div class="row">
-            <div class="col-md-12 col-xs-12 jumbotron text-center">
-                <h1>Final Project</h1>
-                <p>Predicting "Hits" on Spotify</p>
-            </div>
+            <!-- Jumbotron -->
+            <div class="bg-light p-5 rounded-lg m-3">
+                <h1 class="display-4">Final Project</h1>
+                <p class="lead">Predicting "Hit" or not</p>
+                <hr class="my-4">
+                <p>Can we determine whether a track would be popular or not?</p>
+              </div>
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
-                     <form method="POST" action="/send" role="form", name="musicform">
+                <div class="col-md-4">
+                     <form method="POST" action="/send">
                         <p>Filter Search</p>
                         <ul class="list-group bg-dark">
-                            <li class="list-group-item bg-dark">
-                                <label for="genreId">Enter Genre</label>
-                                <input type="text" placeholder="Pop" id="genreId" />
+                            <li class="list-group-item bg-light">
+                                <label for="genre">Enter Genre</label>
+                                <input type="text" placeholder="Pop" name="genre"/>
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="acousticnessId">Enter Acousticness</label>
-                                <input type="text" placeholder="0.###" id="acousticnessId" />
+                            <li class="list-group-item bg-light">
+                                <label for="acousticness">Enter Acousticness</label>
+                                <input type="number" name="acousticness" min="0" max=".999" step=".005" value="{{ feature.acousticness }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="danceabilityId">Enter Danceability</label>
-                                <input type="text" placeholder="0.###" id="danceabilityId" />
+                            <li class="list-group-item bg-light">
+                                <label for="danceability">Enter Danceability</label>
+                                <input type="number" name="danceability" min="0" max=".999" step=".005" value="{{ feature.danceability }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="energyId">Enter Energy</label>
-                                <input type="text" placeholder="0.###" id="energyId" />
+                            <li class="list-group-item bg-light">
+                                <label for="energy">Enter Energy</label>
+                                <input type="number" name="energy" min="0" max=".999" step=".005" value="{{ feature.energy }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="instrumentalnessId">Enter Instrumentalness</label>
-                                <input type="text" placeholder="0.###" id="instrumentalnessId" />
+                            <li class="list-group-item bg-light">
+                                <label for="instrumentalness">Enter Instrumentalness</label>
+                                <input type="number" name="instrumentalness" min="0" max=".999" step=".005" value="{{ feature.instrumentalness }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="livenessId">Enter Liveness</label>
-                                <input type="text" placeholder="0.###" id="livenessId" />
+                            <li class="list-group-item bg-light">
+                                <label for="liveness">Enter Liveness</label>
+                                <input type="number" name="liveness" min="0" max=".999" step=".005" value="{{ feature.liveness }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="loudnessId">Enter Loudness</label>
-                                <input type="text" placeholder="-#.###" id="loudnessId" />
+                            <li class="list-group-item bg-light">
+                                <label for="loudness">Enter Loudness</label>
+                                <input type="number" name="loudness" min="-100" max="10" step=".5" value="{{ feature.loudness }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="speechinessId">Enter Speechiness</label>
-                                <input type="text" placeholder="0.0###" id="speechinessId" />
+                            <li class="list-group-item bg-light">
+                                <label for="speechiness">Enter Speechiness</label>
+                                <input type="number" name="speechiness" min="0" max=".999" step=".005" value="{{ feature.speechiness }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="tempoId">Enter Tempo</label>
-                                <input type="text" placeholder="###.###" id="tempoId" />
+                            <li class="list-group-item bg-light">
+                                <label for="tempo">Enter Tempo</label>
+                                <input type="number" name="tempo" min="0" max="300" step="5" value="{{ feature.tempo }}" />
                             </li>
-                            <li class="list-group-item bg-dark">
-                                <label for="valenceId">Enter Valence</label>
-                                <input type="text" placeholder="0.###" id="valenceId" />
+                            <li class="list-group-item bg-light">
+                                <label for="valence">Enter Valence</label>
+                                <input type="number" name="valence" min="0" max=".999" step=".005" value="{{ feature.valence }}" />
                             </li>
                         </ul>
-                        <input type="submit" value="Hit or Not?" class="btn btn-default">
+                        <!-- <div class="d-flex justify-content-center my-4">
+                            <span class="font-weight-bold blue-text mr-2 mt-1">0</span>
+                            <form class="range-field w-50">
+                              <input class="border-0" type="range" min="0" max="100" />
+                            </form>
+                            <span class="font-weight-bold blue-text ml-2 mt-1"></span>
+                          </div> -->
+                        <input type="submit" value="Hit or Not?" class="btn btn-outline-dark">
                     </form>
                 </div>
                 <hr>
@@ -175,12 +173,6 @@
                     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                     vizElement.parentNode.insertBefore(scriptElement, vizElement);
                 </script>
-                <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-                    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-                    crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                    crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
                 <script src="static/js/plot_copy.js"></script>
