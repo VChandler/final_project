@@ -12,7 +12,7 @@ from flask import (
 # Flask Setup
 app = Flask(__name__)
 
-model_imported = tf.keras.models.load_model('model.h5')
+# model_imported = tf.keras.models.load_model('model.h5')
 
 # Database Setup
 from flask_sqlalchemy import SQLAlchemy
