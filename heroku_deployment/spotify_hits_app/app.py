@@ -1,15 +1,18 @@
 # Import necessary libraries
 import pandas as pd
+import tensorflow as tf
+from tensorflow import keras
 import os
 from flask import (
     Flask,
     render_template,
     jsonify,
-    request,
-    redirect)
+    request,)
 
 # Flask Setup
 app = Flask(__name__)
+
+model_imported = tf.keras.models.load_model('model.h5')
 
 # Database Setup
 from flask_sqlalchemy import SQLAlchemy
@@ -20,7 +23,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], {})
+# engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], {})
+
+# from .model import Hit
 
 # Create route that renders index.html template
 @app.route("/")
@@ -49,8 +54,8 @@ def send():
     feature["valence"] = request.form.get("valence")
     print(request.form)
     print(feature)
-    # hit = popular_hit(acousticness=acousticness, danceability=danceability, energy=energy, instrumentalness=instrumentalness, liveness=liveness, loudness=loudness, speechiness=speechiness, tempo=tempo, valence=valence)
-    # db.session.add(hit)
+    # hit = Hit(acousticness=acousticness, danceability=danceability, energy=energy, instrumentalness=instrumentalness, liveness=liveness, loudness=loudness, speechiness=speechiness, tempo=tempo, valence=valence)
+    # db.session.add(Hit)
     # db.session.commit()
 
     return render_template("index.html", feature=feature)
