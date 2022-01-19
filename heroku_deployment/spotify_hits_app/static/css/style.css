@@ -1,0 +1,10 @@
+body {
+  background:linear-gradient(120deg, #1db954, #191414);
+}
+
+#jumbotron {
+  background-image: url("../images/jumbotron_img.png");
+  text-align: center;
+  color: rgb(255, 255, 255);
+  
+}
