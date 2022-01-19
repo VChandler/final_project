@@ -84,6 +84,9 @@ Tools used:
 * SQLAlchemy  
 ![image](https://user-images.githubusercontent.com/88070999/150053738-9ac3a2d6-5ce0-45e5-bb3a-df045e6672f0.png)  
 
+## Database ERD  
+![image](https://user-images.githubusercontent.com/88070999/150053963-69b74956-1648-4650-a74c-e4c84627a890.png)  
+
 ## Link to dashboard  
 Link to dashboard
 
