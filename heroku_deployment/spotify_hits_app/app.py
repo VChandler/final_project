@@ -1,13 +1,14 @@
 # Import necessary libraries
 import pandas as pd
-import tensorflow as tf
-from tensorflow import keras
+import numpy as np
+import joblib
+from joblib import dump , load
 import os
 from flask import (
     Flask,
     render_template,
     jsonify,
-    request,)
+    request)
 
 # Flask Setup
 app = Flask(__name__)
@@ -25,7 +26,7 @@ db = SQLAlchemy(app)
 
 # engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], {})
 
-# from .model import Hit
+model = joblib.load("/Users/ellejacobs/projects/bootcamp/final_project/random_forest.joblib")
 
 # Create route that renders index.html template
 @app.route("/")
@@ -52,15 +53,31 @@ def send():
     feature["speechiness"] = request.form.get("speechiness")
     feature["tempo"] = request.form.get("tempo")
     feature["valence"] = request.form.get("valence")
-    print(request.form)
+    # print(request.form)
     print(feature)
     # hit = Hit(acousticness=acousticness, danceability=danceability, energy=energy, instrumentalness=instrumentalness, liveness=liveness, loudness=loudness, speechiness=speechiness, tempo=tempo, valence=valence)
     # db.session.add(Hit)
     # db.session.commit()
+    if request.method == 'POST':
+        int_features = [float(input(x)) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        prediction = model.predict(final_features)
 
-    return render_template("index.html", feature=feature)
+        return render_template("index.html", feature=feature, prediction_text = 'Hit or Not?: '.format(prediction))
 
+    # return render_template("index.html", feature=feature)
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        int_features = [int(x) for x in request.form.values()]
+        final_features = [np.array(int_features)]
+        prediction = model.predict(final_features)
+
+        return render_template("index.html", prediction_text = 'Hit or Not?: '.format(prediction))
 
 
 if __name__ == "__main__":
+    
     app.run(debug=True)

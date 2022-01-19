@@ -48,187 +48,250 @@
     <div class="container" id="main">
         <div class="row">
             <!-- Jumbotron -->
-            <div class="bg-light p-5 rounded-lg m-3" id="jumbotron">
+            <div class="bg-light p-5 my-3" id="jumbotron">
                 <h1 class="display-4">Final Project</h1>
                 <p class="lead">Predicting "Hit" or not</p>
                 <hr class="my-4">
                 <p>Can we determine whether a track would be popular or not?</p>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="anchor" id="anchor1"></div>
-                <div class="col-md-4">
-                    <form method="POST" action="/send">
-                        <p>Filter Search</p>
-                        <ul class="list-group bg-dark">
-                            <li class="list-group-item bg-light">
-                                <label for="genre">Enter Genre</label>
-                                <input type="text" placeholder="Pop" name="genre" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="acousticness">Enter Acousticness</label>
-                                <input type="number" name="acousticness" min="0" max=".999" step=".005"
-                                    value="{{ feature.acousticness }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="danceability">Enter Danceability</label>
-                                <input type="number" name="danceability" min="0" max=".999" step=".005"
-                                    value="{{ feature.danceability }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="energy">Enter Energy</label>
-                                <input type="number" name="energy" min="0" max=".999" step=".005"
-                                    value="{{ feature.energy }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="instrumentalness">Enter Instrumentalness</label>
-                                <input type="number" name="instrumentalness" min="0" max=".999" step=".005"
-                                    value="{{ feature.instrumentalness }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="liveness">Enter Liveness</label>
-                                <input type="number" name="liveness" min="0" max=".999" step=".005"
-                                    value="{{ feature.liveness }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="loudness">Enter Loudness</label>
-                                <input type="number" name="loudness" min="-100" max="10" step=".5"
-                                    value="{{ feature.loudness }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="speechiness">Enter Speechiness</label>
-                                <input type="number" name="speechiness" min="0" max=".999" step=".005"
-                                    value="{{ feature.speechiness }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="tempo">Enter Tempo</label>
-                                <input type="number" name="tempo" min="0" max="300" step="5"
-                                    value="{{ feature.tempo }}" />
-                            </li>
-                            <li class="list-group-item bg-light">
-                                <label for="valence">Enter Valence</label>
-                                <input type="number" name="valence" min="0" max=".999" step=".005"
-                                    value="{{ feature.valence }}" />
-                            </li>
-                        </ul>
-                        <!-- <div class="d-flex justify-content-center my-4">
+
+        <div class="row bg-color">
+            <div class="anchor" id="anchor1"></div>
+            <div class="col-md-4">
+                <form method="POST" action="/send">
+                    <h2>Filter Search</h2>
+                    <ul class="list-group bg-dark">
+                        <li class="list-group-item bg-light">
+                            <label for="genre">Enter Genre</label>
+                            <input type="text" placeholder="Pop" name="genre" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="acousticness">Enter Acousticness</label>
+                            <input type="number" name="acousticness" min="0" max=".999" step=".005"
+                                value="{{ feature.acousticness }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="danceability">Enter Danceability</label>
+                            <input type="number" name="danceability" min="0" max=".999" step=".005"
+                                value="{{ feature.danceability }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="energy">Enter Energy</label>
+                            <input type="number" name="energy" min="0" max=".999" step=".005"
+                                value="{{ feature.energy }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="instrumentalness">Enter Instrumentalness</label>
+                            <input type="number" name="instrumentalness" min="0" max=".999" step=".005"
+                                value="{{ feature.instrumentalness }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="liveness">Enter Liveness</label>
+                            <input type="number" name="liveness" min="0" max=".999" step=".005"
+                                value="{{ feature.liveness }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="loudness">Enter Loudness</label>
+                            <input type="number" name="loudness" min="-100" max="10" step=".5"
+                                value="{{ feature.loudness }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="speechiness">Enter Speechiness</label>
+                            <input type="number" name="speechiness" min="0" max=".999" step=".005"
+                                value="{{ feature.speechiness }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="tempo">Enter Tempo</label>
+                            <input type="number" name="tempo" min="0" max="300" step="5" value="{{ feature.tempo }}" />
+                        </li>
+                        <li class="list-group-item bg-light">
+                            <label for="valence">Enter Valence</label>
+                            <input type="number" name="valence" min="0" max=".999" step=".005"
+                                value="{{ feature.valence }}" />
+                        </li>
+                    </ul>
+                    <!-- <div class="d-flex justify-content-center my-4">
                             <span class="font-weight-bold blue-text mr-2 mt-1">0</span>
                             <form class="range-field w-50">
                               <input class="border-0" type="range" min="0" max="100" />
                             </form>
                             <span class="font-weight-bold blue-text ml-2 mt-1"></span>
                           </div> -->
-                          <hr>
-                        <input type="submit" value="Hit or Not?" class="btn btn-outline-dark">
-                    </form>
+
+                    <input type="submit" value="Hit or Not?" class="btn btn-outline-light float-end my-3">
+                </form>
                 <!-- </div> -->
-                <hr>
-                <!-- <div class="row"> -->
-                    <div class="col-md-4">
-                        <div id="gauge"></div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <p class="para">Gauge Information:<br><br>This gauge shows whether a song is predicted to be a
-                            hit or not. </p>
-                    </div>
-                </div>
-                <hr>
-                <!-- Tableau Artist Dashboard  -->
-                <div class="anchor" id="anchor2"></div>
-                <div class='tableauPlaceholder' id='viz1642458679068' style='position: relative'>
-                    <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='ArtistDashboardDraft&#47;ArtistTrackDashboard' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
-                </div>
-                <script type='text/javascript'>
-                    var divElement = document.getElementById('viz1642458679068');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
-                    else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
-                    else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
+            </div>
+            <div class="col-md-8" id="gauge">
+                <div id="gauge-background"></div>
+                <div id="gauge-percent"></div>
+            </div>
+        
 
-                <!-- Tableau Features vs Popularity -->
-                <hr>
-                <div class="anchor" id="anchor3"></div>
-                <div class='tableauPlaceholder' id='viz1642457938976' style='position: relative'>
-                    <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='FeaturesvsPopularityDashboard&#47;FeaturesvsPopularity' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
-                </div>
-                <script type='text/javascript'>
-                    var divElement = document.getElementById('viz1642457938976');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
-                    else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
-                    else { vizElement.style.width = '100%'; vizElement.style.height = '2977px'; }
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
 
-                <!-- Tableau Extra Charts  -->
-                <hr>
-                <div class="anchor" id="anchor4"></div>
-                <div class='tableauPlaceholder' id='viz1641943995196' style='position: relative'>
-                    <object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='FinalProjectDraft2_16419439795740&#47;Dashboard2Draft' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                        <param name='filter' value='publish=yes' />
-                    </object>
+
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                        Artist Dashboard
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                        <!-- Tableau Artist Dashboard  -->
+                        <div class="row bg-color">
+                            <div class="col-md-12">
+
+                                <div class="anchor" id="anchor2"></div>
+                                <div class='tableauPlaceholder' id='viz1642458679068' style='position: relative'>
+                                    <object class='tableauViz' style='display:none;'>
+                                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                        <param name='embed_code_version' value='3' />
+                                        <param name='site_root' value='' />
+                                        <param name='name' value='ArtistDashboardDraft&#47;ArtistTrackDashboard' />
+                                        <param name='tabs' value='no' />
+                                        <param name='toolbar' value='yes' />
+                                        <param name='animate_transition' value='yes' />
+                                        <param name='display_static_image' value='yes' />
+                                        <param name='display_spinner' value='yes' />
+                                        <param name='display_overlay' value='yes' />
+                                        <param name='display_count' value='yes' />
+                                        <param name='language' value='en-US' />
+                                        <param name='filter' value='publish=yes' />
+                                    </object>
+                                </div>
+                                <script type='text/javascript'>
+                                    var divElement = document.getElementById('viz1642458679068');
+                                    var vizElement = divElement.getElementsByTagName('object')[0];
+                                    if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
+                                    else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
+                                    else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
+                                    var scriptElement = document.createElement('script');
+                                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                                </script>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <script type='text/javascript'>
-                    var divElement = document.getElementById('viz1641943995196');
-                    var vizElement = divElement.getElementsByTagName('object')[0];
-                    if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
-                    else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
-                    else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
-                    var scriptElement = document.createElement('script');
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                </script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                <script src="static/js/plot_copy.js"></script>
-                <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseTwo">
+                        Features vs Popularity
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingTwo">
+                    <div class="accordion-body">
+                        <!-- Tableau Features vs Popularity -->
+                        <div class="row bg-color">
+                            <div class="col-md-12">
+
+                                <div class="anchor" id="anchor3"></div>
+                                <div class='tableauPlaceholder' id='viz1642457938976' style='position: relative'>
+                                    <object class='tableauViz' style='display:none;'>
+                                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                        <param name='embed_code_version' value='3' />
+                                        <param name='site_root' value='' />
+                                        <param name='name'
+                                            value='FeaturesvsPopularityDashboard&#47;FeaturesvsPopularity' />
+                                        <param name='tabs' value='no' />
+                                        <param name='toolbar' value='yes' />
+                                        <param name='animate_transition' value='yes' />
+                                        <param name='display_static_image' value='yes' />
+                                        <param name='display_spinner' value='yes' />
+                                        <param name='display_overlay' value='yes' />
+                                        <param name='display_count' value='yes' />
+                                        <param name='language' value='en-US' />
+                                        <param name='filter' value='publish=yes' />
+                                    </object>
+                                </div>
+                                <script type='text/javascript'>
+                                    var divElement = document.getElementById('viz1642457938976');
+                                    var vizElement = divElement.getElementsByTagName('object')[0];
+                                    if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
+                                    else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
+                                    else { vizElement.style.width = '100%'; vizElement.style.height = '2977px'; }
+                                    var scriptElement = document.createElement('script');
+                                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                        aria-controls="panelsStayOpen-collapseThree">
+                        Extra Charts
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingThree">
+                    <div class="accordion-body">
+                        <!-- Tableau Extra Charts  -->
+                        <div class="row bg-color">
+                            <div class="col-md-12">
+                                <div class="anchor" id="anchor4"></div>
+                                <div class='tableauPlaceholder' id='viz1641943995196' style='position: relative'>
+                                    <object class='tableauViz' style='display:none;'>
+                                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                                        <param name='embed_code_version' value='3' />
+                                        <param name='site_root' value='' />
+                                        <param name='name'
+                                            value='FinalProjectDraft2_16419439795740&#47;Dashboard2Draft' />
+                                        <param name='tabs' value='no' />
+                                        <param name='toolbar' value='yes' />
+                                        <param name='animate_transition' value='yes' />
+                                        <param name='display_static_image' value='yes' />
+                                        <param name='display_spinner' value='yes' />
+                                        <param name='display_overlay' value='yes' />
+                                        <param name='display_count' value='yes' />
+                                        <param name='language' value='en-US' />
+                                        <param name='filter' value='publish=yes' />
+                                    </object>
+                                </div>
+                                <script type='text/javascript'>
+                                    var divElement = document.getElementById('viz1641943995196');
+                                    var vizElement = divElement.getElementsByTagName('object')[0];
+                                    if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+                                    else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
+                                    else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
+                                    var scriptElement = document.createElement('script');
+                                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                                </script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+                                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                                <script src="static/js/plot_copy.js"></script>
+                                <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 
 </html>
