@@ -79,7 +79,8 @@ def test():
     if request.method == 'POST':
         print("hello*****************")
         print(model)
-        print(StandardScaler().fit_transform(model))
+        print(loaded_scaler)
+        # print(StandardScaler().fit_transform(model))
         to_predict_list = request.form.to_dict()
         # print(to_predict_list)
         predict_list_df = pd.DataFrame(
@@ -94,14 +95,15 @@ def test():
         features = predict_list_df_copy[col_names]
         print(features.values)
         
-        scaler = model.fit(features.values)
-        # features = scaler.transform(features.values)
+        scaler = loaded_scaler.fit(features.values)
+        features = scaler.transform(features.values)
         print(scaler)
+        print(features)
         predict_list_df_copy[col_names] = features
         
         print(predict_list_df_copy)
 
-        song_data = scaler.fit(predict_list_df_copy)
+        song_data = features.fit(predict_list_df_copy)
         print(song_data)
         print("********************")
         prediction = ValuePredictor(song_data)
