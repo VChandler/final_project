@@ -1,8 +1,17 @@
 # Import necessary libraries
+from flask_sqlalchemy import SQLAlchemy
+import sys
 import pandas as pd
+import sklearn as sklearn
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.pipeline import make_pipeline
 import numpy as np
 import joblib
-from joblib import dump , load
+import pickle
 import os
 from flask import (
     Flask,
@@ -13,10 +22,7 @@ from flask import (
 # Flask Setup
 app = Flask(__name__)
 
-# model_imported = tf.keras.models.load_model('model.h5')
-
 # Database Setup
-from flask_sqlalchemy import SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///spotify.sqlite"
 
 # # Remove tracking modifications
@@ -26,9 +32,9 @@ db = SQLAlchemy(app)
 
 # engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], {})
 
-model = joblib.load("/Users/ellejacobs/projects/bootcamp/final_project/random_forest.joblib")
+model = joblib.load(open("../../random_forest.joblib", 'rb'))
+loaded_scaler = joblib.load(open("../../scaler_model.joblib", 'rb'))
 
-# Create route that renders index.html template
 @app.route("/")
 def home():
     # with engine.connect() as conn:
@@ -41,7 +47,7 @@ def home():
 # Query the database and send the jsonified results
 @app.route("/send", methods=["GET", "POST"])
 def send():
-    
+
     feature = {}
     feature["genre"] = request.form.get("genre")
     feature["acousticness"] = request.form.get("acousticness")
@@ -63,21 +69,68 @@ def send():
         final_features = [np.array(int_features)]
         prediction = model.predict(final_features)
 
-        return render_template("index.html", feature=feature, prediction_text = 'Hit or Not?: '.format(prediction))
+        return render_template("index.html", feature=feature, prediction_text='Hit or Not?: '.format(prediction))
 
     # return render_template("index.html", feature=feature)
+
+
+@app.route('/test', methods=['POST'])
+def test():
+    if request.method == 'POST':
+        print("hello*****************")
+        print(model)
+        print(StandardScaler().fit_transform(model))
+        to_predict_list = request.form.to_dict()
+        # print(to_predict_list)
+        predict_list_df = pd.DataFrame(
+            [to_predict_list.values()], columns=to_predict_list.keys())
+        print(predict_list_df)
+        print(predict_list_df.shape)
+
+        predict_list_df_copy = predict_list_df.copy()
+
+
+        col_names = ['loudness', 'tempo']
+        features = predict_list_df_copy[col_names]
+        print(features.values)
+        
+        scaler = model.fit(features.values)
+        # features = scaler.transform(features.values)
+        print(scaler)
+        predict_list_df_copy[col_names] = features
+        
+        print(predict_list_df_copy)
+
+        song_data = scaler.fit(predict_list_df_copy)
+        print(song_data)
+        print("********************")
+        prediction = ValuePredictor(song_data)
+        print(prediction)
+        
+
+        return render_template("index.html", prediction_text=prediction)
+
+
+def ValuePredictor(to_predict_list):
+    result = model.predict(to_predict_list)
+    return result[0]
 
 
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        int_features = [int(x) for x in request.form.values()]
-        final_features = [np.array(int_features)]
-        prediction = model.predict(final_features)
-
-        return render_template("index.html", prediction_text = 'Hit or Not?: '.format(prediction))
+        print("hello****")
+        to_predict_list = request.form.to_dict()
+        to_predict_list = list(to_predict_list.values())
+        print(to_predict_list)
+        result = ValuePredictor(to_predict_list)
+        if int(result) == 1:
+            prediction = 'This song is a hit'
+        else:
+            prediction = 'This song is not a hit'
+        return render_template("index.html", prediction_text=prediction)
 
 
 if __name__ == "__main__":
-    
+
     app.run(debug=True)
