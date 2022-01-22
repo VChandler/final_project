@@ -85,7 +85,6 @@ def test():
         print(predict_list_df_copy)
         print(prediction)
         hit = False
-
         if prediction == 1.0:
             prediction = 'This song is a hit'
             hit = True

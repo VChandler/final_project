@@ -14,53 +14,6 @@ body {
   color:rgb(255, 255, 255)
 }
 
-#gauge {
-  position: relative;
-}
-
-#gauge-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(to right, red,yellow, green);
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
-
-#gauge-percent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 200;
-  height: 100%;
-  width: 100%;
-  background-image: url("../images/black_img.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-}
-
-@keyframes easeOutBounce {
-  from {
-    background-position-x: 0%;
-  }
-
-  to {
-    background-position-x: -100%;
-  }
-}
-
-#gauge-percent:hover {
-  background-position-x: -75%;
-  transition: background-position-x 700ms;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-
-  
-}
 
 .accordion-button.collapsed {
   background: #191414da;
@@ -107,3 +60,77 @@ input, textarea, select {
   background-color : #d2d2d2;
   color : #191414;
   }
+
+
+#gauge {
+  position: relative;
+}
+
+.gauge-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#gauge-background {
+  z-index: 100;
+}
+
+.hit #gauge-background {
+  background-image: linear-gradient(to right, #11cd40,yellow, #11cd40);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.no-hit #gauge-background {
+  background-image: linear-gradient(to right, red,yellow, red);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#gauge-percent {
+  z-index: 200;
+  background-image: url("../images/black_img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+#gauge-overlay {
+  z-index: 300;
+  display: none;
+}
+
+.hit #gauge-overlay {
+  background: #11cd40;
+}
+
+.hit #gauge-percent.animate {
+  background-position-x: -100%;
+  transition: background-position-x 700ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.no-hit #gauge-overlay {
+  background: red;
+}
+
+.no-hit #gauge-percent.animate {
+  background-position-x: -100%;
+  transition: background-position-x 700ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  
+}
+
+@keyframes easeOutBounce {
+  from {
+    background-position-x: 0%;
+  }
+
+  to {
+    background-position-x: -100%;
+  }
+}
+

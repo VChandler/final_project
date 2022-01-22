@@ -15,7 +15,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+    
 </head>
 
 <body>
@@ -95,39 +95,39 @@
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="acousticness">Enter Acousticness</label>
-                            <input type="number" name="acousticness" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="acousticness" min="0.0" max=".999" step=".005" value="0.185" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="danceability">Enter Danceability</label>
-                            <input type="number" name="danceability" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="danceability" min="0.0" max=".999" step=".005" value="0.230" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="energy">Enter Energy</label>
-                            <input type="number" name="energy" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="energy" min="0.0" max=".999" step=".005" value="0.765" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="instrumentalness">Enter Instrumentalness</label>
-                            <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005" value="0.925" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="liveness">Enter Liveness</label>
-                            <input type="number" name="liveness" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="liveness" min="0.0" max=".999" step=".005" value="0.250" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="loudness">Enter Loudness</label>
-                            <input type="number" name="loudness" min="-100.0" max="10.0" step=".5" value="0.0" />
+                            <input type="number" name="loudness" min="-100.0" max="10.0" step=".5" value="-24.0" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="speechiness">Enter Speechiness</label>
-                            <input type="number" name="speechiness" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="speechiness" min="0.0" max=".999" step=".005" value="0.770" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="tempo">Enter Tempo</label>
-                            <input type="number" name="tempo" min="0.0" max="300.0" step="5.0" value="120.0" />
+                            <input type="number" name="tempo" min="0.0" max="300.0" step="2.0" value="48.0" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="valence">Enter Valence</label>
-                            <input type="number" name="valence" min="0.0" max=".999" step=".005" value="0.0" />
+                            <input type="number" name="valence" min="0.0" max=".999" step=".005" value="0.190" />
                         </li>
                     </ul>
                     <!-- Button  -->
@@ -136,8 +136,9 @@
                 {{ prediction_text }}
             </div>
             <div class="col-md-8 {{ 'hit' if hit else 'no-hit' }}" id="gauge">
-                <div id="gauge-background"></div>
-                <div id="gauge-percent"></div>
+                <div class="gauge-layer" id="gauge-background"></div>
+                <div class="gauge-layer" id="gauge-percent"></div>
+                <div class="gauge-layer" id="gauge-overlay"></div>
             </div>
 
 
@@ -289,7 +290,7 @@
                                     </script>
                                     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
                                     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-                                    <script src="static/js/plot_copy.js"></script>
+                                    <script src="static/js/plot.js"></script>
                                     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
                                 </div>
                             </div>
