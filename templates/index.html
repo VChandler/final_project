@@ -45,9 +45,10 @@
             </div>
         </div>
     </nav>
-    <div class="container" id="main">
+
+    <div class="container" id="main1">
+        <!-- Jumbotron -->
         <div class="row">
-            <!-- Jumbotron -->
             <div class="bg-light p-5 my-3" id="jumbotron">
                 <h1 class="display-4">Final Project</h1>
                 <p class="lead">Predicting "Hit" or not</p>
@@ -56,105 +57,85 @@
             </div>
         </div>
 
-        <div class="row bg-color">
+        <div class="row bg-color" id="main2">
             <div class="anchor" id="anchor1"></div>
             <div class="col-md-4">
-                <form method="POST" action="/test">
+                <!-- User Input Form  -->
+                <form class="form" method="POST" action="/test">
                     <h2>Filter Search</h2>
                     <ul class="list-group bg-dark">
-                        <li class="list-group-item bg-light">
-                            <!-- <label for="genre">Enter Genre</label>
-                            <select id="genre" name="genre">
-                                <option value="Pop">Pop</option>
-                                <option value="Rock">Rock</option>
-                                <option value="Indie">Indie</option>
-                                <option value="Ska_Reggae">Ska/Reggae</option>
-                                <option value="Danceclub">Danceclub</option>
-                                <option value="Folk_Country">Folk/Country</option>
-                                <option value="Jazz_Blues">Jazz/Blues</option>
-                                <option value="World">World</option>
-                                <option value="Cinema">Cinema</option>
-                                <option value="Childrens">Children's</option>
-                                <option value="Classical">Classical</option>
-                                <option value="Hip_Hip_R&B">Hip Hop/R&B</option>
-                              </select> -->
-
-                            <input type="checkbox" name="genre_Pop" value="1.0" />Pop
+                        <li class="list-group-item bg-dark">
+                            <input type="checkbox" name="genre_Pop" value="1.0" /> Pop
                             <input type="hidden" name="genre_Pop" value="0.0" />
-                            <input type="checkbox" name="genre_Rock" value="1.0" />Rock
+                            <input type="checkbox" name="genre_Rock" value="1.0" /> Rock
                             <input type="hidden" name="genre_Rock" value="0.0" />
-                            <input type="checkbox" name="genre_Indie" value="1.0" />Indie
+                            <input type="checkbox" name="genre_Indie" value="1.0" /> Indie
                             <input type="hidden" name="genre_Indie" value="0.0" />
-                            <input type="checkbox" name="genre_Ska_Reggae" value="1.0" />Ska/Reggae
+                            <input type="checkbox" name="genre_Ska_Reggae" value="1.0" /> Ska/Reggae
                             <input type="hidden" name="genre_Ska_Reggae" value="0.0" />
-                            <input type="checkbox" name="genre_Danceclub" value="1.0" />Danceclub
+                            <br>
+                            <input type="checkbox" name="genre_Danceclub" value="1.0" /> Danceclub
                             <input type="hidden" name="genre_Danceclub" value="0.0" />
-                            <input type="checkbox" name="genre_Folk_Country" value="1.0" />Folk/Country
+                            <input type="checkbox" name="genre_Folk_Country" value="1.0" /> Folk/Country
                             <input type="hidden" name="genre_Folk_Country" value="0.0" />
-                            <input type="checkbox" name="genre_Jazz_Blues" value="1.0" />Jazz/Blues
+                            <input type="checkbox" name="genre_Jazz_Blues" value="1.0" /> Jazz/Blues
                             <input type="hidden" name="genre_Jazz_Blues" value="0.0" />
-                            <input type="checkbox" name="genre_World" value="1.0" />World
+                            <br>
+                            <input type="checkbox" name="genre_World" value="1.0" /> World
                             <input type="hidden" name="genre_World" value="0.0" />
-                            <input type="checkbox" name="genre_Cinema" value="1.0" />Cinema
+                            <input type="checkbox" name="genre_Cinema" value="1.0" /> Cinema
                             <input type="hidden" name="genre_Cinema" value="0.0" />
-                            <input type="checkbox" name="genre_Childrens" value="1.0" />Children's
+                            <input type="checkbox" name="genre_Childrens" value="1.0" /> Children's
                             <input type="hidden" name="genre_Childrens" value="0.0" />
-                            <input type="checkbox" name="genre_Classical" value="1.0" />Classical
+                            <input type="checkbox" name="genre_Classical" value="1.0" /> Classical
                             <input type="hidden" name="genre_Classical" value="0.0" />
-                            <input type="checkbox" name="genre_Hip_Hip_R&B" value="1.0" />Hip Hop/R&B
+                            <br>
+                            <input type="checkbox" name="genre_Hip_Hip_R&B" value="1.0" /> Hip Hop/R&B
                             <input type="hidden" name="genre_Hip_Hip_R&B" value="0.0" />
-
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="acousticness">Enter Acousticness</label>
                             <input type="number" name="acousticness" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="danceability">Enter Danceability</label>
                             <input type="number" name="danceability" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="energy">Enter Energy</label>
                             <input type="number" name="energy" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="instrumentalness">Enter Instrumentalness</label>
                             <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="liveness">Enter Liveness</label>
                             <input type="number" name="liveness" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="loudness">Enter Loudness</label>
                             <input type="number" name="loudness" min="-100.0" max="10.0" step=".5" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="speechiness">Enter Speechiness</label>
                             <input type="number" name="speechiness" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="tempo">Enter Tempo</label>
                             <input type="number" name="tempo" min="0.0" max="300.0" step="5.0" value="120.0" />
                         </li>
-                        <li class="list-group-item bg-light">
+                        <li class="list-group-item bg-dark">
                             <label for="valence">Enter Valence</label>
                             <input type="number" name="valence" min="0.0" max=".999" step=".005" value="0.0" />
                         </li>
                     </ul>
-                    <!-- <div class="d-flex justify-content-center my-4">
-                            <span class="font-weight-bold blue-text mr-2 mt-1">0</span>
-                            <form class="range-field w-50">
-                              <input class="border-0" type="range" min="0" max="100" />
-                            </form>
-                            <span class="font-weight-bold blue-text ml-2 mt-1"></span>
-                          </div> -->
-
+                    <!-- Button  -->
                     <input type="submit" value="Hit or Not?" class="btn btn-outline-light float-end my-3">
                 </form>
                 {{ prediction_text }}
             </div>
-            <div class="col-md-8" id="gauge">
+            <div class="col-md-8 {{ 'hit' if hit else 'no-hit' }}" id="gauge">
                 <div id="gauge-background"></div>
                 <div id="gauge-percent"></div>
             </div>
@@ -165,21 +146,19 @@
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseOne">
                             Artist Dashboard
                         </button>
                     </h2>
                     <div class="anchor" id="anchor2"></div>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
                         aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
                             <!-- Tableau Artist Dashboard  -->
                             <div class="row bg-color">
                                 <div class="col-md-12">
-
-
                                     <div class='tableauPlaceholder' id='viz1642458679068' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
@@ -320,7 +299,6 @@
             </div>
         </div>
     </div>
-
 
 
 </body>

@@ -81,14 +81,21 @@ def test():
         predict_list_df_copy[col_names] = features
         # Use ValuePredictor function to make prediction from RandomForest Model
         prediction = ValuePredictor(predict_list_df_copy)
-        if int(prediction) == 1.0:
+        print(predict_list_df)
+        print(predict_list_df_copy)
+        print(prediction)
+        hit = False
+
+        if prediction == 1.0:
             prediction = 'This song is a hit'
+            hit = True
         else:
             prediction = 'This song is not a hit'
-        return render_template("index.html", prediction_text=prediction)
+        return render_template("index.html", prediction_text=prediction, hit=hit)
 
 def ValuePredictor(to_predict_list):
     result = model.predict(to_predict_list)
+    print(result)
     return result[0]
 
 if __name__ == "__main__":

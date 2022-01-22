@@ -61,3 +61,49 @@ body {
 
   
 }
+
+.accordion-button.collapsed {
+  background: #191414da;
+  color: #ffffff;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
+  background-color: #191414da;
+  
+}
+
+.accordion-button:after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:focus {
+  border-color: #11cd40;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #1db954;
+}
+
+#main1 {
+  padding-bottom: 20px;
+}
+
+#main2 {
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+
+.list-group-item {
+  background-color: #191414;
+  color: #ffffff;
+}
+
+.checkbox-lg .custom-control-label::before, 
+.checkbox-lg .custom-control-label::after {
+  top: .8rem;
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+input, textarea, select {
+  background-color : #d2d2d2;
+  color : #191414;
+  }
