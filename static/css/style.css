@@ -1,0 +1,165 @@
+body {
+  background:linear-gradient(120deg, #1db954, #191414);
+}
+
+#jumbotron {
+  background-image: url("../images/jumbotron_img.png");
+  text-align: center;
+  color: rgb(255, 255, 255);
+  
+}
+
+.bg-color {
+  background: #1a1a1aaf;
+  color:rgb(255, 255, 255)
+}
+
+
+.accordion-button.collapsed {
+  background: #191414da;
+  color: #ffffff;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #ffffff;
+  background-color: #191414da;
+  
+}
+
+.accordion-button:after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:focus {
+  border-color: #11cd40;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #1db954;
+}
+
+#main1 {
+  padding-bottom: 20px;
+}
+
+#main2 {
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+
+.list-group-item {
+  background-color: #191414;
+  color: #ffffff;
+  width: 60%;
+  margin: 0 auto;
+}
+
+label { 
+  display:block;
+}
+
+input, select {
+  background-color : #d2d2d2;
+  color : #191414;
+  text-align: center;
+  width: 100%;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+#info {
+  padding: 5px 75px;
+}
+
+#gauge {
+  display: none;
+  position: relative;
+  height: 100px;
+  width: 700px;
+  margin: 20px auto 0px auto;
+}
+
+#gauge.hit, #gauge.no-hit {
+  display: inline-block;
+}
+
+.gauge-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: solid #11cd40a1 1px ;
+  border-radius: 15px;
+}
+
+#gauge-background {
+  z-index: 100;
+  box-shadow: 3px 3px 5px #11cd40;
+}
+
+.hit #gauge-background {
+  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, #7fcd11,#11cd40, #0fb639);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.no-hit #gauge-background {
+  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, rgb(255, 119, 0), red);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#gauge-percent {
+  z-index: 200;
+  background-image: url("../images/black_img.png");
+  background-repeat: no-repeat;
+  background-size: 700px 100px;
+}
+
+#gauge-overlay {
+  z-index: 300;
+  background-image: linear-gradient(black, rgb(233, 243, 247));
+  opacity: 0.4;
+}
+
+.hit #gauge-overlay {
+  
+}
+
+#gauge-text {
+  z-index: 400;
+}
+
+#gauge-text h1 {
+  text-align: center;
+  line-height: 85px;
+  
+}
+
+.hit #gauge-percent.animate {
+  background-position-x: 700px;
+  transition: background-position-x 2000ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.no-hit #gauge-overlay {
+  
+}
+
+.no-hit #gauge-percent.animate {
+  background-position-x: 700px;
+  transition: background-position-x 2000ms;
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  
+}
+
+@keyframes easeOutBounce {
+  from {
+    background-position-x: 0%;
+  }
+
+  to {
+    background-position-x: -100%;
+  }
+}
+
