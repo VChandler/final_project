@@ -47,23 +47,39 @@ body {
 .list-group-item {
   background-color: #191414;
   color: #ffffff;
+  width: 60%;
+  margin: 0 auto;
 }
 
-.checkbox-lg .custom-control-label::before, 
-.checkbox-lg .custom-control-label::after {
-  top: .8rem;
-  width: 1.55rem;
-  height: 1.55rem;
+label { 
+  display:block;
 }
 
-input, textarea, select {
+input, select {
   background-color : #d2d2d2;
   color : #191414;
-  }
+  text-align: center;
+  width: 100%;
+}
 
+input[type=checkbox] {
+  display: none;
+}
+
+#info {
+  padding: 5px 75px;
+}
 
 #gauge {
+  display: none;
   position: relative;
+  height: 100px;
+  width: 700px;
+  margin: 20px auto 0px auto;
+}
+
+#gauge.hit, #gauge.no-hit {
+  display: inline-block;
 }
 
 .gauge-layer {
@@ -72,20 +88,23 @@ input, textarea, select {
   left: 0;
   height: 100%;
   width: 100%;
+  border: solid #11cd40a1 1px ;
+  border-radius: 15px;
 }
 
 #gauge-background {
   z-index: 100;
+  box-shadow: 3px 3px 5px #11cd40;
 }
 
 .hit #gauge-background {
-  background-image: linear-gradient(to right, #11cd40,yellow, #11cd40);
+  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, #7fcd11,#11cd40, #0fb639);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .no-hit #gauge-background {
-  background-image: linear-gradient(to right, red,yellow, red);
+  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, rgb(255, 119, 0), red);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -94,32 +113,42 @@ input, textarea, select {
   z-index: 200;
   background-image: url("../images/black_img.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  
+  background-size: 700px 100px;
 }
 
 #gauge-overlay {
   z-index: 300;
-  display: none;
+  background-image: linear-gradient(black, rgb(233, 243, 247));
+  opacity: 0.4;
 }
 
 .hit #gauge-overlay {
-  background: #11cd40;
+  
+}
+
+#gauge-text {
+  z-index: 400;
+}
+
+#gauge-text h1 {
+  text-align: center;
+  line-height: 85px;
+  
 }
 
 .hit #gauge-percent.animate {
-  background-position-x: -100%;
-  transition: background-position-x 700ms;
+  background-position-x: 700px;
+  transition: background-position-x 2000ms;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .no-hit #gauge-overlay {
-  background: red;
+  
 }
 
 .no-hit #gauge-percent.animate {
-  background-position-x: -100%;
-  transition: background-position-x 700ms;
+  background-position-x: 700px;
+  transition: background-position-x 2000ms;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   
 }

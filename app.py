@@ -70,6 +70,7 @@ def test():
         to_predict_list = request.form.to_dict()
         # Turn dictionary into a DataFrame
         predict_list_df = pd.DataFrame([to_predict_list.values()], columns=to_predict_list.keys())
+        predict_list_df.drop(["genre"], axis=1, inplace=True)
         # Make a copy of the DataFrame
         predict_list_df_copy = predict_list_df.copy()
         # Get columns to be scaled
@@ -84,12 +85,13 @@ def test():
         print(predict_list_df)
         print(predict_list_df_copy)
         print(prediction)
-        hit = False
+        hit = ""
         if prediction == 1.0:
-            prediction = 'This song is a hit'
-            hit = True
+            prediction = 'This Song is a Hit!'
+            hit = "hit"
         else:
-            prediction = 'This song is not a hit'
+            prediction = 'This Song is Not a Hit!'
+            hit = "no-hit"
         return render_template("index.html", prediction_text=prediction, hit=hit)
 
 def ValuePredictor(to_predict_list):
