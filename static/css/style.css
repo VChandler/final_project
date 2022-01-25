@@ -2,6 +2,13 @@ body {
   background:linear-gradient(120deg, #1db954, #191414);
 }
 
+#anchor1 {
+  display: block;
+  position: relative;
+  top: -65px;
+  visibility: hidden;
+}
+
 #jumbotron {
   background-image: url("../images/jumbotron_img.png");
   text-align: center;

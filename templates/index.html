@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Refresh</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -33,13 +33,16 @@
                         <a class="nav-link" aria-current="page" href="#anchor1">ML Prediction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#anchor2">Track Features</a>
+                        <a class="nav-link" href="#anchor2" data-bs-toggle="collapse" data-bs-target="#panel1"
+                            aria-controls="panel1-controls">Track Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#anchor3">Features vs Popularity</a>
+                        <a class="nav-link" href="#anchor3" data-bs-toggle="collapse" data-bs-target="#panel2"
+                            aria-controls="panel2-controls">Features vs Popularity</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#anchor4">More Charts</a>
+                        <a class="nav-link" href="#anchor4" data-bs-toggle="collapse" data-bs-target="#panel3"
+                            aria-controls="panel3-controls">More Charts</a>
                     </li>
                 </ul>
             </div>
@@ -56,9 +59,9 @@
                 <p>Can we determine whether a track would be popular or not?</p>
             </div>
         </div>
-
+        <div class="anchor" id="anchor1"></div>
         <div class="row bg-color" id="main2">
-            <div class="anchor" id="anchor1"></div>
+
             <div class="col-md-4 col-xs-12">
                 <!-- User Input Form  -->
                 <form class="form" method="POST" action="/test">
@@ -80,13 +83,13 @@
                                 <option value="genre_Childrens">Children's</option>
                                 <option value="genre_Classical">Classical</option>
                                 <option value="genre_Hip_Hip_R&B">Hip Hop/R&B</option>
-                              </select>
+                            </select>
 
-                            <input type="checkbox" name="genre_Pop" value="1.0" checked="checked"/>
+                            <input type="checkbox" name="genre_Pop" value="1.0" checked="checked" />
                             <input type="hidden" name="genre_Pop" value="0.0" />
-                            <input type="checkbox" name="genre_Rock" value="1.0" /> 
+                            <input type="checkbox" name="genre_Rock" value="1.0" />
                             <input type="hidden" name="genre_Rock" value="0.0" />
-                            <input type="checkbox" name="genre_Indie" value="1.0" /> 
+                            <input type="checkbox" name="genre_Indie" value="1.0" />
                             <input type="hidden" name="genre_Indie" value="0.0" />
                             <input type="checkbox" name="genre_Ska_Reggae" value="1.0" />
                             <input type="hidden" name="genre_Ska_Reggae" value="0.0" />
@@ -109,64 +112,73 @@
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="acousticness">Enter Acousticness</label>
-                            <input type="number" name="acousticness" min="0.0" max=".999" step=".005" value="{{ predict_list_df['acousticness'] }}" />
+                            <input type="number" name="acousticness" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['acousticness'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="danceability">Enter Danceability</label>
-                            <input type="number" name="danceability" min="0.0" max=".999" step=".005" value="{{ predict_list_df['danceability'] }}" />
+                            <input type="number" name="danceability" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['danceability'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="energy">Enter Energy</label>
-                            <input type="number" name="energy" min="0.0" max=".999" step=".005" value="{{ predict_list_df['energy'] }}" />
+                            <input type="number" name="energy" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['energy'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="instrumentalness">Enter Instrumentalness</label>
-                            <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005" value="{{ predict_list_df['instrumentalness'] }}" />
+                            <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['instrumentalness'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="liveness">Enter Liveness</label>
-                            <input type="number" name="liveness" min="0.0" max=".999" step=".005" value="{{ predict_list_df['liveness'] }}" />
+                            <input type="number" name="liveness" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['liveness'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="loudness">Enter Loudness</label>
-                            <input type="number" name="loudness" min="-100.0" max="10.0" step=".5" value="{{ predict_list_df['loudness'] }}" />
+                            <input type="number" name="loudness" min="-100.0" max="10.0" step=".5"
+                                value="{{ predict_list_df['loudness'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="speechiness">Enter Speechiness</label>
-                            <input type="number" name="speechiness" min="0.0" max=".999" step=".005" value="{{ predict_list_df['speechiness'] }}" />
+                            <input type="number" name="speechiness" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['speechiness'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="tempo">Enter Tempo</label>
-                            <input type="number" name="tempo" min="0.0" max="300.0" step="2.0" value="{{ predict_list_df['tempo'] }}" />
+                            <input type="number" name="tempo" min="0.0" max="300.0" step="2.0"
+                                value="{{ predict_list_df['tempo'] }}" />
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="valence">Enter Valence</label>
-                            <input type="number" name="valence" min="0.0" max=".999" step=".005" value="{{ predict_list_df['valence'] }}" />
+                            <input type="number" name="valence" min="0.0" max=".999" step=".005"
+                                value="{{ predict_list_df['valence'] }}" />
                         </li>
                     </ul>
                     <!-- Button  -->
                     <input type="submit" value="Hit or Not?" class="btn btn-outline-light float-end my-3">
                 </form>
-               
+
             </div>
             <div class="col-md-8 col-xs-12">
                 <div id="info">
                     <h2>Machine Learning Predictor</h2>
                     <p>
-                        We analyzed various features of 177,000 different Spotify tracks across 
-                        genres to see which features are the most predictive in determining the 
-                        popularity of the track. We examined the results from two different 
-                        models - logistic regression and random forest. Both produced similar results, 
-                        but Random Forest (with 128 estimators) was slightly better. We saved our model, 
-                        and created a web application that enables users to explore the data and enter 
+                        We analyzed various features of 177,000 different Spotify tracks across
+                        genres to see which features are the most predictive in determining the
+                        popularity of the track. We examined the results from two different
+                        models - logistic regression and random forest. Both produced similar results,
+                        but Random Forest (with 128 estimators) was slightly better. We saved our model,
+                        and created a web application that enables users to explore the data and enter
                         characteristics to predict the popularity of a track.
                     </p>
                     <p>
-                        <ul>
-                            <li>Enter values for the features in the form on the left</li>
-                            <li>Press the button "Hit or Not?" to make a prediction</li>
-                            <li>See the results below!</li>
-                        </ul>
+                    <ul>
+                        <li>Enter values for the features in the form on the left</li>
+                        <li>Press the button "Hit or Not?" to make a prediction</li>
+                        <li>See the results below!</li>
+                    </ul>
                     </p>
                 </div>
                 <div class="{{ hit }}" id="gauge">
@@ -182,18 +194,16 @@
 
             <hr>
 
-            <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion" id="anchor2">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panel1" aria-expanded="true" aria-controls="panel1-controls">
                             Artist Dashboard
                         </button>
                     </h2>
-                    <div class="anchor" id="anchor2"></div>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingOne">
+                    <div id="panel1" class="accordion-collapse collapse show" aria-labelledby="panel1-controls"
+                        data-bs-parent="#anchor2">
                         <div class="accordion-body">
                             <!-- Tableau Artist Dashboard  -->
                             <div class="row bg-color">
@@ -236,14 +246,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseTwo">
+                            data-bs-target="#panel2" aria-expanded="false" aria-controls="panel2-controls">
                             Features vs Popularity
                         </button>
                     </h2>
                     <div class="anchor" id="anchor3"></div>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingTwo">
+                    <div id="panel2" class="accordion-collapse collapse" aria-labelledby="panel2-controls"
+                        data-bs-parent="#anchor2">
                         <div class="accordion-body">
                             <!-- Tableau Features vs Popularity -->
                             <div class="row bg-color">
@@ -286,14 +295,13 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                            aria-controls="panelsStayOpen-collapseThree">
+                            data-bs-target="#panel3" aria-expanded="false" aria-controls="panel3-controls">
                             Extra Charts
                         </button>
                     </h2>
                     <div class="anchor" id="anchor4"></div>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="panelsStayOpen-headingThree">
+                    <div id="panel3" class="accordion-collapse collapse" aria-labelledby="panel3-controls"
+                        data-bs-parent="#anchor2">
                         <div class="accordion-body">
                             <!-- Tableau Extra Charts  -->
                             <div class="row bg-color">
