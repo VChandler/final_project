@@ -1,1 +1,1 @@
-web: gunicorn spotify_hits_app.app:app
+web: gunicorn app:app
