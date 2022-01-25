@@ -85,7 +85,7 @@ input[type=checkbox] {
 .gauge-layer {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 12px;
   height: 100%;
   width: 100%;
   border: solid #11cd40a1 1px ;
@@ -98,13 +98,13 @@ input[type=checkbox] {
 }
 
 .hit #gauge-background {
-  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, #7fcd11,#11cd40, #0fb639);
+  background-image: linear-gradient(to right, rgb(255, 255, 45),rgb(157, 255, 0), #7fcd11,#11cd40);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .no-hit #gauge-background {
-  background-image: linear-gradient(to right, rgb(255, 255, 88),yellow, rgb(255, 119, 0), red);
+  background-image: linear-gradient(to right, rgb(255, 255, 45),rgb(255, 204, 0), rgb(255, 119, 0), red);
   background-repeat: no-repeat;
   background-size: cover;
 }

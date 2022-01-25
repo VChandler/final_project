@@ -2,7 +2,7 @@ window.onload = (event) => {
     const ele = document.getElementById("gauge-percent");
     setTimeout(function() {
         ele.classList.add("animate");
-    }, 1000);
+    }, 500);
     
     const dd = document.getElementById("genre");
     dd.addEventListener("change", function() {
