@@ -1,1 +1,1 @@
-FLASK_APP=spotify_hits_app/app.py flask run
+FLASK_APP=app.py flask run
