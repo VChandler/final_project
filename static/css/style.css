@@ -2,6 +2,13 @@ body {
   background:linear-gradient(120deg, #1db954, #191414);
 }
 
+#anchor1 {
+  display: block;
+  position: relative;
+  top: -65px;
+  visibility: hidden;
+}
+
 #jumbotron {
   background-image: url("../images/jumbotron_img.png");
   text-align: center;
@@ -113,7 +120,7 @@ input[type=checkbox] {
   z-index: 200;
   background-image: url("../images/black_img.png");
   background-repeat: no-repeat;
-  background-size: 700px 100px;
+  background-size: 100% 100px;
 }
 
 #gauge-overlay {
