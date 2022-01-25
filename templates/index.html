@@ -59,7 +59,7 @@
 
         <div class="row bg-color" id="main2">
             <div class="anchor" id="anchor1"></div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-12">
                 <!-- User Input Form  -->
                 <form class="form" method="POST" action="/test">
                     <h2>Build A Song!</h2>
@@ -67,7 +67,7 @@
                         <li class="list-group-item bg-dark">
 
                             <label for="genre">Enter Genre</label>
-                            <select id="genre" name="genre">
+                            <select id="genre" name="genre" data-genre="{{ predict_list_df['genre'] }}">
                                 <option value="genre_Pop">Pop</option>
                                 <option value="genre_Rock">Rock</option>
                                 <option value="genre_Indie">Indie</option>
@@ -149,7 +149,7 @@
                 </form>
                
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-xs-12">
                 <div id="info">
                     <h2>Machine Learning Predictor</h2>
                     <p>
@@ -197,7 +197,7 @@
                         <div class="accordion-body">
                             <!-- Tableau Artist Dashboard  -->
                             <div class="row bg-color">
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-xs-12">
                                     <div class='tableauPlaceholder' id='viz1642458679068' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
@@ -247,7 +247,7 @@
                         <div class="accordion-body">
                             <!-- Tableau Features vs Popularity -->
                             <div class="row bg-color">
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-xs-12">
                                     <div class='tableauPlaceholder' id='viz1642457938976' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
@@ -297,7 +297,7 @@
                         <div class="accordion-body">
                             <!-- Tableau Extra Charts  -->
                             <div class="row bg-color">
-                                <div class="col-md-12">
+                                <div class="col-md-12 col-xs-12">
                                     <div class='tableauPlaceholder' id='viz1641943995196' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />

@@ -14,6 +14,12 @@ window.onload = (event) => {
         let toCheck = document.getElementsByName(dd.value)[0];
         toCheck.checked = true;
     });
+
+    let genre = dd.getAttribute('data-genre');
+    console.log(genre);
+    if (genre != null) {
+        document.getElementById('genre').value = genre;
+    }
 };
 
 
