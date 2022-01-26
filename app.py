@@ -19,8 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'], {})
-
+#Load in saved model and scaler from machine_learning.ipynb
 model = joblib.load(open("random_forest.joblib", 'rb'))
 loaded_scaler = joblib.load(open("scaler_model.joblib", 'rb'))
 
@@ -38,37 +37,7 @@ def home():
     predict_list_df["valence"] = 0.190
     return render_template('index.html', predict_list_df=predict_list_df)
 
-
-# Query the database and send the jsonified results
-@app.route("/send", methods=["GET", "POST"])
-def send():
-
-    feature = {}
-    feature["genre"] = request.form.get("genre")
-    feature["acousticness"] = request.form.get("acousticness")
-    feature["danceability"] = request.form.get("danceability")
-    feature["energy"] = request.form.get("energy")
-    feature["instrumentalness"] = request.form.get("instrumentalness")
-    feature["liveness"] = request.form.get("liveness")
-    feature["loudness"] = request.form.get("loudness")
-    feature["speechiness"] = request.form.get("speechiness")
-    feature["tempo"] = request.form.get("tempo")
-    feature["valence"] = request.form.get("valence")
-    # print(request.form)
-    print(feature)
-    # hit = Hit(acousticness=acousticness, danceability=danceability, energy=energy, instrumentalness=instrumentalness, liveness=liveness, loudness=loudness, speechiness=speechiness, tempo=tempo, valence=valence)
-    # db.session.add(Hit)
-    # db.session.commit()
-    if request.method == 'POST':
-        int_features = [float(input(x)) for x in request.form.values()]
-        final_features = [np.array(int_features)]
-        prediction = model.predict(final_features)
-
-        return render_template("index.html", feature=feature, prediction_text='Hit or Not?: '.format(prediction))
-
-    # return render_template("index.html", feature=feature)
-
-
+# Submit values from form and run them through ML model
 @app.route('/test', methods=['POST'])
 def test():
     if request.method == 'POST':
@@ -88,9 +57,6 @@ def test():
         predict_list_df_copy[col_names] = features
         # Use ValuePredictor function to make prediction from RandomForest Model
         prediction = ValuePredictor(predict_list_df_copy)
-        print(predict_list_df['acousticness'])
-        print(predict_list_df_copy)
-        print(prediction)
         hit = ""
         if prediction == 1.0:
             prediction = 'This Song is a Hit!'
