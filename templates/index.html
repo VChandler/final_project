@@ -70,7 +70,7 @@
                         <li class="list-group-item bg-dark">
 
                             <label for="genre">Enter Genre</label>
-                            <select id="genre" name="genre" data-genre="{{ predict_list_df['genre'] }}">
+                            <select id="genre" name="genre" data-genre="{{ predict_list_df['genre'] }}" data-toggle="tooltip" data-animation="false" title="Genre: A category of musical composition characterized by a particular style, form, or content.">
                                 <option value="genre_Pop">Pop</option>
                                 <option value="genre_Rock">Rock</option>
                                 <option value="genre_Indie">Indie</option>
@@ -113,47 +113,47 @@
                         <li class="list-group-item bg-dark">
                             <label for="acousticness">Enter Acousticness</label>
                             <input type="number" name="acousticness" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['acousticness'] }}" />
+                                value="{{ predict_list_df['acousticness'] }}" data-toggle="tooltip" data-animation="false" title="Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="danceability">Enter Danceability</label>
                             <input type="number" name="danceability" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['danceability'] }}" />
+                                value="{{ predict_list_df['danceability'] }}" data-toggle="tooltip" data-animation="false" title="Danceability: Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="energy">Enter Energy</label>
                             <input type="number" name="energy" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['energy'] }}" />
+                                value="{{ predict_list_df['energy'] }}" data-toggle="tooltip" data-animation="false" title="Energy: A measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="instrumentalness">Enter Instrumentalness</label>
                             <input type="number" name="instrumentalness" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['instrumentalness'] }}" />
+                                value="{{ predict_list_df['instrumentalness'] }}" data-toggle="tooltip" data-animation="false" title="Instrumentalness: Predicts whether a track contains no vocals. 'Ooh' and 'aah' sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly 'vocal'. The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="liveness">Enter Liveness</label>
                             <input type="number" name="liveness" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['liveness'] }}" />
+                                value="{{ predict_list_df['liveness'] }}" data-toggle="tooltip" data-animation="false" title="Liveness: Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="loudness">Enter Loudness</label>
                             <input type="number" name="loudness" min="-100.0" max="10.0" step=".5"
-                                value="{{ predict_list_df['loudness'] }}" />
+                                value="{{ predict_list_df['loudness'] }}" data-toggle="tooltip" data-animation="false" title="Loudness: The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="speechiness">Enter Speechiness</label>
                             <input type="number" name="speechiness" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['speechiness'] }}" />
+                                value="{{ predict_list_df['speechiness'] }}" data-toggle="tooltip" data-animation="false" title="Speechiness: Detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="tempo">Enter Tempo</label>
-                            <input type="number" name="tempo" min="0.0" max="300.0" step="2.0"
-                                value="{{ predict_list_df['tempo'] }}" />
+                            <input type="number" name="tempo" min="0.0" step="2.0"
+                                value="{{ predict_list_df['tempo'] }}" data-toggle="tooltip" data-animation="false" title="Tempo: The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration."/>
                         </li>
                         <li class="list-group-item bg-dark">
                             <label for="valence">Enter Valence</label>
                             <input type="number" name="valence" min="0.0" max=".999" step=".005"
-                                value="{{ predict_list_df['valence'] }}" />
+                                value="{{ predict_list_df['valence'] }}" data-toggle="tooltip" data-animation="false" title="Valence: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry)."/>
                         </li>
                     </ul>
                     <!-- Button  -->
@@ -191,7 +191,6 @@
                 </div>
             </div>
 
-
             <hr>
 
             <div class="accordion" id="anchor2">
@@ -208,7 +207,7 @@
                             <!-- Tableau Artist Dashboard  -->
                             <div class="row bg-color">
                                 <div class="col-md-12 col-xs-12">
-                                    <div class='tableauPlaceholder' id='viz1642458679068' style='position: relative'>
+                                    <div class='tableauPlaceholder' id='viz1643163476511' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                                             <param name='embed_code_version' value='3' />
@@ -226,7 +225,7 @@
                                         </object>
                                     </div>
                                     <script type='text/javascript'>
-                                        var divElement = document.getElementById('viz1642458679068');
+                                        var divElement = document.getElementById('viz1643163476511');
                                         var vizElement = divElement.getElementsByTagName('object')[0];
                                         if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
                                         else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '378px'; vizElement.style.maxWidth = '1578px'; vizElement.style.width = '100%'; vizElement.style.height = '646px'; }
@@ -237,11 +236,9 @@
                                     </script>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -257,40 +254,12 @@
                             <!-- Tableau Features vs Popularity -->
                             <div class="row bg-color">
                                 <div class="col-md-12 col-xs-12">
-                                    <div class='tableauPlaceholder' id='viz1642457938976' style='position: relative'>
-                                        <object class='tableauViz' style='display:none;'>
-                                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                            <param name='embed_code_version' value='3' />
-                                            <param name='site_root' value='' />
-                                            <param name='name'
-                                                value='FeaturesvsPopularityDashboard&#47;FeaturesvsPopularity' />
-                                            <param name='tabs' value='no' />
-                                            <param name='toolbar' value='yes' />
-                                            <param name='animate_transition' value='yes' />
-                                            <param name='display_static_image' value='yes' />
-                                            <param name='display_spinner' value='yes' />
-                                            <param name='display_overlay' value='yes' />
-                                            <param name='display_count' value='yes' />
-                                            <param name='language' value='en-US' />
-                                            <param name='filter' value='publish=yes' />
-                                        </object>
-                                    </div>
-                                    <script type='text/javascript'>
-                                        var divElement = document.getElementById('viz1642457938976');
-                                        var vizElement = divElement.getElementsByTagName('object')[0];
-                                        if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
-                                        else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '800px'; vizElement.style.maxWidth = '4778px'; vizElement.style.width = '100%'; vizElement.style.height = '1446px'; }
-                                        else { vizElement.style.width = '100%'; vizElement.style.height = '2977px'; }
-                                        var scriptElement = document.createElement('script');
-                                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                                    </script>
+                                    <div class='tableauPlaceholder' id='viz1643176947129' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='FeaturesvsPopularity&#47;FeaturesvsPopularity' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1643176947129');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='574px';vizElement.style.maxWidth='2274px';vizElement.style.width='100%';vizElement.style.height='2907px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='574px';vizElement.style.maxWidth='2274px';vizElement.style.width='100%';vizElement.style.height='2907px';} else { vizElement.style.width='100%';vizElement.style.height='2927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
@@ -306,13 +275,12 @@
                             <!-- Tableau Extra Charts  -->
                             <div class="row bg-color">
                                 <div class="col-md-12 col-xs-12">
-                                    <div class='tableauPlaceholder' id='viz1641943995196' style='position: relative'>
+                                    <div class='tableauPlaceholder' id='viz1643175662414' style='position: relative'>
                                         <object class='tableauViz' style='display:none;'>
                                             <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
                                             <param name='embed_code_version' value='3' />
                                             <param name='site_root' value='' />
-                                            <param name='name'
-                                                value='FinalProjectDraft2_16419439795740&#47;Dashboard2Draft' />
+                                            <param name='name' value='ExtraCharts_16431680084660&#47;ExtraCharts' />
                                             <param name='tabs' value='no' />
                                             <param name='toolbar' value='yes' />
                                             <param name='animate_transition' value='yes' />
@@ -325,11 +293,9 @@
                                         </object>
                                     </div>
                                     <script type='text/javascript'>
-                                        var divElement = document.getElementById('viz1641943995196');
+                                        var divElement = document.getElementById('viz1643175662414');
                                         var vizElement = divElement.getElementsByTagName('object')[0];
-                                        if (divElement.offsetWidth > 800) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
-                                        else if (divElement.offsetWidth > 500) { vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; }
-                                        else { vizElement.style.width = '100%'; vizElement.style.height = '727px'; }
+                                        vizElement.style.minWidth = '774px'; vizElement.style.maxWidth = '1374px'; vizElement.style.width = '100%'; vizElement.style.height = '791px';
                                         var scriptElement = document.createElement('script');
                                         scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                                         vizElement.parentNode.insertBefore(scriptElement, vizElement);
@@ -346,8 +312,6 @@
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
