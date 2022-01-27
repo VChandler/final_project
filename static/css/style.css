@@ -30,7 +30,6 @@ body {
 .accordion-button:not(.collapsed) {
   color: #ffffff;
   background-color: #191414da;
-  
 }
 
 .accordion-button:after {
@@ -129,10 +128,6 @@ input[type=checkbox] {
   opacity: 0.4;
 }
 
-.hit #gauge-overlay {
-  
-}
-
 #gauge-text {
   z-index: 400;
 }
@@ -140,7 +135,6 @@ input[type=checkbox] {
 #gauge-text h1 {
   text-align: center;
   line-height: 85px;
-  
 }
 
 .hit #gauge-percent.animate {
@@ -149,15 +143,10 @@ input[type=checkbox] {
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.no-hit #gauge-overlay {
-  
-}
-
 .no-hit #gauge-percent.animate {
   background-position-x: 700px;
   transition: background-position-x 2000ms;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); 
 }
 
 @keyframes easeOutBounce {

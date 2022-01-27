@@ -1,7 +1,6 @@
 # Import necessary libraries
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-import numpy as np
 import joblib
 from flask import (
     Flask,
@@ -66,6 +65,7 @@ def test():
             hit = "no-hit"
         return render_template("index.html", prediction_text=prediction, hit=hit, predict_list_df=to_predict_list)
 
+# Make ValuePredictor to run through saved model
 def ValuePredictor(to_predict_list):
     result = model.predict(to_predict_list)
     print(result)

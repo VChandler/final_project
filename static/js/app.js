@@ -17,9 +17,12 @@ window.onload = (event) => {
 
     let genre = dd.getAttribute('data-genre');
     console.log(genre);
-    if (genre != null || genre !== '') {
+    if (genre != null && genre !== '') {
         document.getElementById('genre').value = genre;
+    } else {
+        document.getElementById('genre').value = 'genre_Pop';
     }
+
 
     const navlinks = document.getElementsByClassName('nav-link');
     for (var i = 0; i < navlinks.length; i++) {
